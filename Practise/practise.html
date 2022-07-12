@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        color: red
+      }
+    </style>
+  </head>
+  <body>
+    <div >
+      email:
+      <input id="email" type="text" />
+      <span> </span>
+    </div>
+    <div>
+      password:
+      <input id="password" type="password" />
+      <span></span>
+    </div>
+    <div>
+      confirm password:
+      <input id="confirm" type="password" />
+      <span></span>
+    </div>
+    <button>submit</button>
+
+  </body>
+  <!-- <script src="./practise.js"></script> -->
+  <script>
+    var email = document.getElementById('email')
+    var confirm = document.getElementById('confirm')
+    var password = document.getElementById('password')
+    var alert = document.getElementById('alert')
+    var spans = document.getElementsByTagName('span')
+    var emailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+    var passwordReg = /\w+/
+    email.onchange = function (e) {
+      var value = e.target.value
+      if (!emailReg.test(value)) {
+        spans[0].innerHTML = 'please input correct email address';
+      }else {
+        spans[0].innerHTML = '';
+      }
+    }
+    password.onchange = function(e) {
+      var value = e.target.value
+      if(!passwordReg.test(value)) {
+        spans[1].innerHTML = 'please enter password';
+      }else {
+        spans[1].innerHTML = '';
+      }
+      if (value !== confirm.value ) {
+        spans[2].innertHTML= 'passowrd not match'
+      }else {
+        spans[2].innerHTML = ''
+      }
+    }
+    confirm.onchange = function (e) {
+      var value = e.target.value
+      if(password.value !== value) {
+        spans[2].innerHTML = 'password not match'
+      }else {
+        console.log('run')
+        spans[2].innerHTML = ''
+      }
+    }
+  </script>
+
+
+</html>

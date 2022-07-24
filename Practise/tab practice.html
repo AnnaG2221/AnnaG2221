@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Practice</title>
+  <style>
+    .tab { background-color: aqua; text-align: center; text-align: center; margin-right: 5px; width:120px; height:50px; line-height: 50px; float: left;}
+    .cont{width:484px; height:300px; background-color: blueviolet;}
+  </style>
+</head>
+<body>
+  <div class="tabs">
+
+    <div class="tab">sport</div>
+    <div class="tab">movie</div>
+    <div class="tab">song</div>
+    <div class="tab">name</div>
+  </div>
+  <div class="conts">
+    <div class="cont">
+      <div>swim</div>
+      <div>tennies</div>
+      <div>football</div>
+    </div>
+    <div class="cont">
+      <div>dr strange</div>
+      <div>stranger things</div>
+      <div>iron man</div>
+    </div>
+    <div class="cont">
+      <div>you are my sun shine</div>
+      <div>baby shack</div>
+      <div>let it go</div>
+    </div>
+    <div class="cont">
+      <div>Anna</div>
+      <div>Alex</div>
+      <div>William</div>
+    </div>
+  </div>
+  <script>
+    const tabs = document.getElementsByClassName('tab')
+    const conts = document.getElementsByClassName('cont')
+    for (var i = 0; i< tabs.length; i++) {
+      tabs[i].index = i;
+      tabs[i].onclick = function (){
+        for (var j = 0; j<tabs.length; j++) {
+          conts[j].style.display= 'none'
+        }
+        conts[this.index].style.display = 'block'
+
+      }
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="timer"></h1>
+    <h2 id="greeting"></h2>
+    <button>stop</button>
+
+    <script>
+      const endTime = new Date("jul 24, 2022 16:20");
+      const h1 = document.getElementById("timer");
+      const h2 = document.getElementById("greeting");
+      var visible = false;
+      const timer = setInterval(() => {
+        const startTime = new Date();
+        visible = !visible;
+        const mark = visible ? ":" : " ";
+        console.log(visible);
+        const day = Math.floor((endTime - startTime) / 1000 / 60 / 60 / 24);
+        const hour = Math.floor(
+          (endTime - startTime - day * 1000 * 60 * 60 * 24) / 1000 / 60 / 60
+        );
+        const minute = Math.floor(
+          (endTime -
+            startTime -
+            day * 1000 * 60 * 60 * 24 -
+            hour * 1000 * 60 * 60) /
+            1000 /
+            60
+        );
+        const second = Math.floor(
+          (endTime -
+            startTime -
+            day * 1000 * 60 * 60 * 24 -
+            hour * 1000 * 60 * 60 -
+            minute * 1000 * 60) /
+            1000
+        );
+        // console.log(endTime - startTime)
+        // console.log(day, hour,minute, second)
+        if (day < 0) {
+          h1.innerText = '';
+          h2.innerText = 'happy birthday!!!'
+          clearInterval(timer)
+
+        }else {
+          h2.innerHTML = ''
+          h1.innerHTML =  "Time to your Birthday: " + day + 'day ' + hour + mark + minute + mark + second
+        }
+
+      }, 1000);
+
+      const btn = document.querySelector("button");
+      btn.onclick = () => {
+        clearInterval(timer);
+      };
+    </script>
+  </body>
+</html>
